@@ -4,22 +4,17 @@ import java.io.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+//@WebServlet(name = "testServlet", value = "/test-servlet")
 public class TestServlet extends HttpServlet {
-    private String message;
-
-    public void init() {
-        message = "Hello World!";
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        PrintWriter pw = response.getWriter();
 
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        pw.println("<html>");
+        pw.println("<h1> Hello, " + name + " " + surname + " </h1>");
+        pw.println("</html>");
     }
 
     public void destroy() {

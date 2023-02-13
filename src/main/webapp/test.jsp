@@ -1,4 +1,4 @@
-<%@ page import="java.io.PrintWriter" %>
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -8,14 +8,22 @@
 <%--это еще HTML--%>
 <%
     //А тут можно писать Java-код
-    PrintWriter out1 = response.getWriter();
+
+    out.println("Сейчас : " + new Date());
+    out.println("<br>");
+
     String s = "Вся власть роботам!";
     for (int i = 0; i < 10; i++) {
-        out1.println(s);
-        out1.println("<br>");
+        out.println(s);
+        out.println("<br>");
     }
 
 %>
+<%
+    String image = request.getParameter("image");
+    out.println("<img src=\"" + image + "\">");
+%>
+
 <%--а это уже опять HTML--%>
 </body>
 </html>
