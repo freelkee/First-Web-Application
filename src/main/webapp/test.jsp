@@ -12,7 +12,7 @@
     out.println("Сейчас : " + new Date());
     out.println("<br>");
 
-    String s = "Вся власть роботам!";
+    String s = "Give all the power to robots!";
     for (int i = 0; i < 10; i++) {
         out.println(s);
         out.println("<br>");
